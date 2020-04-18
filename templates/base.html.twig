@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-success mb-4">
+				<a class="navbar-brand" href="{{path('homepage')}}">Cavanna Immo</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Accueil
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+					</ul>
+					{% if app.user %}
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown">
+							<a href="#" class="nav-link py-0 dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+								{{app.user}}
+							</a>
+							<div class="dropdown-menu dropdown-menu-right dropdown-menu--animate" aria-labelledby="accountDropdownLink">									
+									<a href="#" class="dropdown-item">Créer un immeuble</a>
+									<div class="dropdown-divider"></div>
+								<a href="{{ path('app_logout')}}" class="dropdown-item">Déconnexion</a>
+							</div>
+						</li>
+					{% endif %}
+					</ul>
+				</div>
+			</nav>
+		</header>
+			{% block body %}{% endblock %}
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}		
+	</body>
 </html>
