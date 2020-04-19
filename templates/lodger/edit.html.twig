@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lodger{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Modifier les informations du locataire</h1>
+
+        {{ include('lodger/_form.html.twig', {'button_label': 'Mettre à jour les informations'}) }}
+    </div>
+{% endblock %}

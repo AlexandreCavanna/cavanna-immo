@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste locataires
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row justify-content-center">
+			<h1>Liste des Locataires</h1>
+
+			<table class="table table-hover text-center">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Prénom</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Téléphone</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for lodger in lodgers %}
+						<tr>
+							<th scope="row">{{ lodger.id }}</th>
+							<td>{{ lodger.firstname }}</td>
+							<td>{{ lodger.name }}</td>
+							<td>{{ lodger.phone }}</td>
+							<td>
+								<a href="{{ path('lodger_show', {'id': lodger.id}) }}" class="btn btn-primary text-center">Voir en détaille</a>
+								<a href="{{ path('lodger_edit', {'id': lodger.id}) }}" class="btn btn-primary text-center">Modifier les informations</a>
+                                {{ include('lodger/_delete_form.html.twig') }}
+                            </td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">Pas encore de locataires</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="text-center">
+				<a href="{{ path('lodger_new') }}" class="btn btn-success">Créer un nouveau locataire</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
