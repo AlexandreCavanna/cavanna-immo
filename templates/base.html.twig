@@ -12,19 +12,19 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-				<a class="navbar-brand" href="{{path('homepage')}}">Cavanna Immo</a>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+				<a class="navbar-brand" href="{{path('homepage')}}"><img src="{{asset('images/logo.png')}}" alt="" style="height:60px;width:130px"> <img src="{{asset('images/cavanna.png')}}" alt="" style="height:60px;width:270px"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
+						{# <li class="nav-item active">
 							<a class="nav-link" href="{{path('homepage')}}">Accueil
 								<span class="sr-only">(current)</span>
 							</a>
-						</li>
+						</li> #}
 					</ul>
 					{% if app.user %}
 					<ul class="navbar-nav ml-auto">
@@ -34,10 +34,12 @@
 							</a>
 							<div class="dropdown-menu dropdown-menu-right dropdown-menu--animate" aria-labelledby="accountDropdownLink">									
 									<a href="{{path('lodger_new')}}" class="dropdown-item">Créer un locataire</a>
+									<a href="{{path('housing_new')}}" class="dropdown-item">Créer un logement</a>
 									<a href="{{path('building_new')}}" class="dropdown-item">Créer un immeuble</a>
 									<div class="dropdown-divider"></div>
 									<a href="{{path('lodger_index')}}" class="dropdown-item">Voir les locataires</a>
 									<a href="{{path('building_index')}}" class="dropdown-item">Voir les immeubles</a>
+									<a href="{{path('housing_index')}}" class="dropdown-item">Voir les logements</a>
 									<div class="dropdown-divider"></div>
 								<a href="{{ path('app_logout')}}" class="dropdown-item">Déconnexion</a>
 							</div>

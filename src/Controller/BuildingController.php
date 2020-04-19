@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Building;
 use App\Form\BuildingType;
+use App\Repository\HousingRepository;
 use App\Repository\BuildingRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("admin/building")
@@ -51,10 +52,11 @@ class BuildingController extends AbstractController
     /**
      * @Route("/{id}", name="building_show", methods={"GET"})
      */
-    public function show(Building $building): Response
+    public function show(Building $building, HousingRepository $housingRepository): Response
     {
         return $this->render('building/show.html.twig', [
             'building' => $building,
+            'housings' => $housingRepository->findAll()
         ]);
     }
 

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Housing{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Création d'un nouveau logement</h1>
+    
+        {{ include('housing/_form.html.twig') }}
+    </div>
+
+{% endblock %}

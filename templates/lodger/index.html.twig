@@ -27,7 +27,7 @@
 							<td>{{ lodger.phone }}</td>
 							<td>
 								<a href="{{ path('lodger_show', {'id': lodger.id}) }}" class="btn btn-primary text-center">Voir en détaille</a>
-								<a href="{{ path('lodger_edit', {'id': lodger.id}) }}" class="btn btn-primary text-center">Modifier les informations</a>
+								<a href="{{ path('lodger_edit', {'id': lodger.id}) }}" class="btn btn-primary text-center">Modifier</a>
                                 {{ include('lodger/_delete_form.html.twig') }}
                             </td>
 						</tr>

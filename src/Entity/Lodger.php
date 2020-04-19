@@ -31,6 +31,11 @@ class Lodger
      */
     private $phone;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Housing", inversedBy="lodger", cascade={"persist"})
+     */
+    private $housing;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,23 @@ class Lodger
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->firstname ." ".  $this->name;
+    }
+
+    public function getHousing(): ?Housing
+    {
+        return $this->housing;
+    }
+
+    public function setHousing(?Housing $housing): self
+    {
+        $this->housing = $housing;
 
         return $this;
     }

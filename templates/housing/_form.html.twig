@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="text-center">
+        <button class="btn btn-primary">{{ button_label|default('Créer le logement') }}</button>
+        <a href="{{ path('housing_index') }}" class="btn btn-primary">Retour à la Liste des logements</a>
+    </div>
+{{ form_end(form) }}

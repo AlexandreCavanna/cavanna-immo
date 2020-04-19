@@ -5,19 +5,23 @@
 
 {% block body %}
 	<div class="container">
-		<h1 class="text-center">Immeuble : n°{{ building.id }} </h1>
+		<h1 class="text-center">Immeuble : n°{{ building.id }} - {{ building.address }} </h1>
 
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">Adresse</th>
+                    <th scope="col">Logement</th>
+                    <th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th scope="row">{{ building.id }}</th>
-					<td>{{ building.address }}</td>
+                {% for housing in building.housings %}
+                    <td>{{ housing }}</td> 
+                    <td><a href="{{ path('housing_show', {'id': housing.id}) }}" class="btn btn-primary">Voir en détail</a></td>
+                {% endfor %}
 				</tr>
 			</tbody>
 		</table>

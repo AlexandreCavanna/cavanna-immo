@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Logement
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center">Logement : {{housing.lot}} Type :{{housing.type}}</h1>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Lot</th>
+					<th scope="col">Type</th>
+					<th scope="col">Loyer</th>
+                    <th scope="col">Electricitée</th>
+                    <th scope="col">Entretiens chaudières</th>
+                    <th scope="col">Entretiens extérieurs</th>
+                    <th scope="col">Locataire</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">{{ housing.id }}</th>
+					<td>{{ housing.lot }}</td>
+                    <td>{{ housing.type }}</td>
+                    <td>{% if housing.rent == null %}0 €{% else %} {{ housing.rent }} € {% endif %}</td>
+                    <td>{% if housing.electricity == null %}0 €{% else %} {{ housing.electricity }} € {% endif %}</td>
+                    <td>{% if housing.variousMaintenance == null %}0 €{% else %} {{ housing.variousMaintenance }} € {% endif %}</td>
+                    <td>{% if housing.outdoorMaintenance == null %}0 €{% else %} {{ housing.outdoorMaintenance }} € {% endif %}</td>
+                    <td>
+                        {{housing.lodger}} <a href="{{ path('lodger_show', {'id': lodger.id}) }}" class="btn btn-primary">Modifier les informations du logement</a>
+                    </td>
+                </tr>
+			</tbody>
+		</table>
+        <div class="text-center">
+		    <a href="{{ path('housing_edit', {'id': housing.id}) }}" class="btn btn-primary">Modifier les informations du logement</a>
+		    <a href="{{ path('housing_index') }}" class="btn btn-primary">Retour à la Liste des logements</a>
+        </div>
+
+
+	</div>
+{% endblock %}
