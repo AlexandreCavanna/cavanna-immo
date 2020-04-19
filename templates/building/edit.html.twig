@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Immeuble{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Modifier les informations de l'mmeuble</h1>
+
+    {{ include('building/_form.html.twig', {'button_label': 'Mettre à jour les informations'}) }}
+</div>
+
+{% endblock %}

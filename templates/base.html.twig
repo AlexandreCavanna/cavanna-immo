@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand-lg navbar-light bg-success mb-4">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
 				<a class="navbar-brand" href="{{path('homepage')}}">Cavanna Immo</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -33,7 +33,11 @@
 								{{app.user}}
 							</a>
 							<div class="dropdown-menu dropdown-menu-right dropdown-menu--animate" aria-labelledby="accountDropdownLink">									
-									<a href="#" class="dropdown-item">Créer un immeuble</a>
+									<a href="{{path('lodger_new')}}" class="dropdown-item">Créer un locataire</a>
+									<a href="{{path('building_new')}}" class="dropdown-item">Créer un immeuble</a>
+									<div class="dropdown-divider"></div>
+									<a href="{{path('lodger_index')}}" class="dropdown-item">Voir les locataires</a>
+									<a href="{{path('building_index')}}" class="dropdown-item">Voir les immeubles</a>
 									<div class="dropdown-divider"></div>
 								<a href="{{ path('app_logout')}}" class="dropdown-item">Déconnexion</a>
 							</div>

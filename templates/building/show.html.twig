@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}building
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="text-center">Immeuble : n°{{ building.id }} </h1>
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Adresse</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">{{ building.id }}</th>
+					<td>{{ building.address }}</td>
+				</tr>
+			</tbody>
+		</table>
+        <div class="text-center">
+		    <a href="{{ path('building_edit', {'id': building.id}) }}" class="btn btn-primary">Modifier les informations de l'immeuble</a>
+		    <a href="{{ path('building_index') }}" class="btn btn-primary">Retour à la Liste des immeubles</a>
+        </div>
+
+
+	</div>
+{% endblock %}
