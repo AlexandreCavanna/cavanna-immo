@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Housing;
-use App\Entity\Lodger;
 use App\Form\HousingType;
 use App\Repository\HousingRepository;
 use App\Repository\LodgerRepository;
@@ -53,12 +52,11 @@ class HousingController extends AbstractController
     /**
      * @Route("/{id}", name="housing_show", methods={"GET"})
      */
-    public function show(Housing $housing, LodgerRepository $lodgerRepository, Lodger $lodger): Response
+    public function show(Housing $housing, LodgerRepository $lodgerRepository): Response
     {
         return $this->render('housing/show.html.twig', [
             'housing' => $housing,
             'lodgers' => $lodgerRepository->findAll(),
-            'lodger' => $lodger
         ]);
     }
 

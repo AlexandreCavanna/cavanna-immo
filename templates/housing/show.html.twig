@@ -18,6 +18,7 @@
                     <th scope="col">Entretiens chaudières</th>
                     <th scope="col">Entretiens extérieurs</th>
                     <th scope="col">Locataire</th>
+					<th scope="col">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,8 +31,9 @@
                     <td>{% if housing.variousMaintenance == null %}0 €{% else %} {{ housing.variousMaintenance }} € {% endif %}</td>
                     <td>{% if housing.outdoorMaintenance == null %}0 €{% else %} {{ housing.outdoorMaintenance }} € {% endif %}</td>
                     <td>
-                        {{housing.lodger}} <a href="{{ path('lodger_show', {'id': lodger.id}) }}" class="btn btn-primary">Modifier les informations du logement</a>
+                        {{housing.lodger}} 
                     </td>
+					<td><a href="{{ path('lodger_show', {'id': housing.lodger.id}) }}" class="btn btn-primary">Voir le locataire</a></td>
                 </tr>
 			</tbody>
 		</table>
