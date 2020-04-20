@@ -4,9 +4,13 @@
 
 {% block body %}
     <div class="container">
-        <h1>Modifier les informations du logement</h1>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h1>Modifier les informations du logement</h1>
     
-        {{ include('housing/_form.html.twig', {'button_label': 'Mettre à jour les informations'}) }}
+                {{ include('housing/_form.html.twig', {'button_label': 'Mettre à jour les informations'}) }}
+            </div>
+        </div>
     </div>
 
 {% endblock %}

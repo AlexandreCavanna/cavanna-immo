@@ -135,7 +135,7 @@ class Housing
 
     public function __toString(): string
     {
-        return 'Logement n° '.$this->lot . ' Type : '. $this->type;
+        return $this->building ." ➜➜➜➜ Logement n° ".$this->lot . ' Type : '. $this->type;
     }
 
     public function getBuilding(): ?Building
